@@ -703,7 +703,7 @@ static int perf__doh_sockready(struct perf_net_socket* sock, int pipe_fd, int64_
         nghttp2_settings_entry iv[] = {
             { NGHTTP2_SETTINGS_MAX_CONCURRENT_STREAMS, doh_max_concurr },
             { NGHTTP2_SETTINGS_ENABLE_PUSH, 0 },
-            { NGHTTP2_SETTINGS_INITIAL_WINDOW_SIZE, 65535 }
+            { NGHTTP2_SETTINGS_INITIAL_WINDOW_SIZE, 2147483647 }
         };
         int ret = nghttp2_submit_settings(self->http2.session, NGHTTP2_FLAG_NONE, iv,
             sizeof(iv) / sizeof(*iv));
